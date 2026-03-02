@@ -1,11 +1,9 @@
 package sorting.algo;
 
+import utilitySort.SortUtility;
+
 public class SelectionSort implements SortingAlgo {
-    private void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
+
 
     @Override
     public void sort(int[] nums) {
@@ -18,7 +16,7 @@ public class SelectionSort implements SortingAlgo {
                     min = j;
                 }
             }
-            swap(nums, i, min);
+            SortUtility.swap(nums, i, min);
         }
 
     }
@@ -28,13 +26,7 @@ public class SelectionSort implements SortingAlgo {
         SortingAlgo sortingAlgo = new SelectionSort();
         sortingAlgo.sort(nums);
         System.out.println("Sorted Array");
-        printArray(nums);
+        SortUtility.printArray(nums);
     }
 
-    private static void printArray(int[] nums) {
-        for (int num : nums) {
-            System.out.print(num + " ");
-        }
-        System.out.println();
-    }
 }
